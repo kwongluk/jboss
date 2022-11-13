@@ -4,9 +4,8 @@
                 <http-listener name="default" socket-binding="http" redirect-socket="https" enable-http2="true"/>
                 <https-listener name="https" socket-binding="https" security-realm="ApplicationRealm" enable-http2="true"/>
                 <host name="default-host" alias="localhost">
-                    <location name="/sample1" handler="wf2-proxy"/>
-                    <http-invoker security-realm="ApplicationRealm"/>
                     <location name="/" handler="wf2-proxy"/>
+                    <http-invoker security-realm="ApplicationRealm"/>
                 </host>
             </server>
             <servlet-container name="default">
@@ -24,7 +23,7 @@
 
 <socket-binding-group name="standard-sockets" default-interface="public" port-offset="${jboss.socket.binding.port-offset:0}">
         <outbound-socket-binding name="wf2-binding">
-              <remote-destination host="192.168.120.252" port="80"/>
+              <remote-destination host="192.168.120.252" port="80" />
         </outbound-socket-binding>
         <socket-binding name="ajp" port="${jboss.ajp.port:8009}"/>
         <socket-binding name="http" port="${jboss.http.port:8080}"/>
