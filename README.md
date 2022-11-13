@@ -1,6 +1,9 @@
 # jboss
 jboss
 
+http://jeenotepad.blogspot.com/2017/09/reverse-proxy-in-wildfly.html
+
+https://docs.jboss.org/author/display/WFLY10/Using%20Wildfly%20as%20a%20Load%20Balancer.html
 
 https://computingforgeeks.com/install-jboss-eap-on-centos-rhel-rocky-linux/
 
