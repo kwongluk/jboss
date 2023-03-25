@@ -16,6 +16,8 @@ the service will default to starting a standalone JBoss EAP server using the def
 #sudo chkconfig --add jboss-eap-rhel.sh
 
 #sudo service jboss-eap-rhel start
+/bin/systemctl start jboss-eap-rhel.service
+
 sudo semanage fcontext -a -t bin_t /etc/init.d/jboss-eap-rhel.sh
 sudo restorecon -v /etc/init.d/jboss-eap-rhel.sh
 
