@@ -1,8 +1,11 @@
-
-nohup ./standalone.sh --server-config
-
+nohup ./standalone.sh --server-config  standalone.xml &
 tail nohup.out
-
 cd /opt/jboss/standalone/log
-
+https://xxxx:8443
+http://xxx:8080/sample1
+http://xxx:9990/console/
+admin / admin123#
+firefox &
+ps -ef | grep firefox
+kill -9 21718
 
