@@ -1,0 +1,64 @@
+Configuring JBoss EAP as a Service in Red Hat Enterprise Linux (RPM Installation)
+
+systemctl enable EAP_SERVICE_NAME.service
+
+systemctl start eap7-standalone.service
+
+systemctl start eap7-domain.service
+
+eap7-standalone.conf
+WILDFLY_BIND=192.168.0.1
+
+EAP_HOME/bin/standalone.conf
+JAVA_OPTS="$JAVA_OPTS -Xms2048m -Xmx2048m"
+JAVA_OPTS="$JAVA_OPTS -Djboss.bind.address.management=192.168.0.1"
+
+systemctl stop eap7-standalone.service
+systemctl stop eap7-domain.service
+
+EAP_HOME/bin/jboss-cli.sh
+connect
+deploy --help
+quit
+:take-snapshot
+:list-snapshots
+:delete-snapshot(name=20151022-133109702standalone.xml)
+
+Start the Server with a Snapshot
+EAP_HOME/bin/standalone.sh --server-config=standalone_xml_history/snapshot/20151022-133109702standalone.xml
+
+
+
+
+
+
+
+
+
+By default, starting JBoss EAP as a standalone server uses the standalone.xml file. 
+To start JBoss EAP with a different configuration, use the --server-config argument. For example,
+
+$ EAP_HOME/bin/standalone.sh --server-config=standalone-full.xml
+
+
+Backing Up Configuration Data
+In order to later restore the JBoss EAP server configuration, items in the following locations should be backed up:
+
+EAP_HOME/standalone/configuration/
+
+Back up the entire directory to save user data, server configuration, and logging settings for standalone servers.
+EAP_HOME/domain/configuration/
+
+Back up the entire directory to save user and profile data, domain and host configuration, and logging settings for managed domains.
+EAP_HOME/modules/
+
+Back up any custom modules.
+EAP_HOME/welcome-content/
+
+Back up any custom welcome content.
+EAP_HOME/bin/
+
+Back up any custom scripts or startup configuration files.
+
+
+
