@@ -1,0 +1,8 @@
+
+nohup ./standalone.sh --server-config
+
+tail nohup.out
+
+cd /opt/jboss/standalone/log
+
+
