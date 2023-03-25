@@ -8,18 +8,18 @@ There are several options in jboss-eap.conf file, but at the minimum you must pr
 You can customize the other options provided in the configuration file by uncommenting and editing the respective lines. If you do not, 
 the service will default to starting a standalone JBoss EAP server using the default configuration file, standalone.xml.
 
-sudo cp EAP_HOME/bin/init.d/jboss-eap.conf /etc/default
+#sudo cp EAP_HOME/bin/init.d/jboss-eap.conf /etc/default
 
-sudo cp EAP_HOME/bin/init.d/jboss-eap-rhel.sh /etc/init.d
-sudo chmod +x /etc/init.d/jboss-eap-rhel.sh
+#sudo cp EAP_HOME/bin/init.d/jboss-eap-rhel.sh /etc/init.d
+#sudo chmod +x /etc/init.d/jboss-eap-rhel.sh
 
-sudo chkconfig --add jboss-eap-rhel.sh
+#sudo chkconfig --add jboss-eap-rhel.sh
 
-sudo service jboss-eap-rhel start
+#sudo service jboss-eap-rhel start
 
-sudo chkconfig jboss-eap-rhel.sh on
+#sudo chkconfig jboss-eap-rhel.sh on
 
-# Removing the JBoss EAP Service in Red Hat Enterprise Linux
+#### Removing the JBoss EAP Service in Red Hat Enterprise Linux
 sudo service jboss-eap-rhel stop
 sudo rm /etc/init.d/jboss-eap-rhel.sh
 sudo rm /etc/default/jboss-eap.conf
