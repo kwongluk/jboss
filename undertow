@@ -1,0 +1,20 @@
+<subsystem xmlns="urn:jboss:domain:undertow:1.1">
+
+   <handlers>
+   . . . .
+   <reverse-proxy name="myproxy">
+
+    <host name="http://192.168.0.2/myapp-develop"/>
+
+   </reverse-proxy>
+
+   </handlers>
+
+</subsystem>
+
+
+<host name="default-host" alias="localhost">
+    . . .
+   <location name="/myapp-stable" handler="myproxy"/>
+
+ </host>
