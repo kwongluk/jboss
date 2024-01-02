@@ -14,9 +14,9 @@ EOF
 #subscription-manager repos --disable jb-coreservices-1-for-rhel-8-x86_64-rpms
 #yum repolist
 
-#yum groupinstall jbcs-httpd24
+#yum groupinstall jbcs-httpd24 -y
 
-#yum install -y selinux-policy-devel
-#yum install jbcs-httpd2.4-httpd-selinux
+#yum install -y selinux-policy-devel -y
+#yum install jbcs-httpd2.4-httpd-selinux -y
 #ps -eo euser,egroup,comm | grep httpd
 #ps -eZ | grep httpd | head -n1
