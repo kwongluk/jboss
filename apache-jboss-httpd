@@ -18,3 +18,4 @@ ps -eo euser,egroup,comm | grep httpd
 ps -eZ | grep httpd | head -n1
 
 
+subscription-manager repos --disable jb-coreservices-1-for-rhel-8-*
