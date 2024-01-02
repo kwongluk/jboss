@@ -1,21 +1,22 @@
 https://linuxhint.com/create-yum-local-repository/
 
-subscription-manager repos --enable jb-coreservices-1-for-rhel-8-x86_64-rpms
-reposync -n -p /root/temp --download-metadata --repo=jb-coreservices-1-for-rhel-8-x86_64-rpms
+#subscription-manager repos --enable jb-coreservices-1-for-rhel-8-x86_64-rpms
+#reposync -n -p /root/temp --download-metadata --repo=jb-coreservices-1-for-rhel-8-x86_64-rpms
 
-cat <<EOF> local.repo
+#cat <<EOF> local.repo
 [jbcs]
 name=jbcs
-basurl=///root/temp/jbcs/
+basurl=///root/temp/jb-coreservices-1-for-rhel-8-x86_64-rpms/
 gpgcheck=0
 enabled=1
 EOF
 
-yum groupinstall jbcs-httpd24
-yum install -y selinux-policy-devel
-yum install jbcs-httpd2.4-httpd-selinux
-ps -eo euser,egroup,comm | grep httpd
-ps -eZ | grep httpd | head -n1
+#subscription-manager repos --disable jb-coreservices-1-for-rhel-8-x86_64-rpms
+#yum repolist
 
+#yum groupinstall jbcs-httpd24
 
-subscription-manager repos --disable jb-coreservices-1-for-rhel-8-*
+#yum install -y selinux-policy-devel
+#yum install jbcs-httpd2.4-httpd-selinux
+#ps -eo euser,egroup,comm | grep httpd
+#ps -eZ | grep httpd | head -n1
