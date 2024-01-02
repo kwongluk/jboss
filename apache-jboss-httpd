@@ -1,4 +1,6 @@
 subscription-manager repos --enable jb-coreservices-1-for-rhel-8-x86_64-rpms
+reposync -n -p /localrepo/jbcs --download-metadata --repo=jb-coreservices-1-for-rhel-8-x86_64-rpms
+
 yum groupinstall jbcs-httpd24
 yum install -y selinux-policy-devel
 yum install jbcs-httpd2.4-httpd-selinux
