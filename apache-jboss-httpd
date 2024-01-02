@@ -1,1 +1,30 @@
+
+
+
+
+
+
+
+subscription-manager repos --enable jb-coreservices-1-for-rhel-7-server-rpms
+
+
 yum groupinstall jbcs-httpd24
+jbcs-httpd2.4-httpd-selinux
+
+yum install -y selinux-policy-devel
+
+
+
+
+
+
+
+
+
+
+
+
+ps -eo euser,egroup,comm | grep httpd
+
+ps -eZ | grep httpd | head -n1
+
