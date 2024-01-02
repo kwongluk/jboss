@@ -1,5 +1,15 @@
+https://linuxhint.com/create-yum-local-repository/
+
 subscription-manager repos --enable jb-coreservices-1-for-rhel-8-x86_64-rpms
-reposync -n -p /localrepo/jbcs --download-metadata --repo=jb-coreservices-1-for-rhel-8-x86_64-rpms
+reposync -n -p /root/temp --download-metadata --repo=jb-coreservices-1-for-rhel-8-x86_64-rpms
+
+cat <<EOF> local.repo
+[jbcs]
+name=jbcs
+basurl=///root/temp/jbcs/
+gpgcheck=0
+enabled=1
+EOF
 
 yum groupinstall jbcs-httpd24
 yum install -y selinux-policy-devel
